@@ -3,7 +3,7 @@ from pages.base_page import BasePage
 from locators.order_page_locators import *
 
 class OrderPage(BasePage):
-    URL = BasePage.HOST+"order"
+    URL = "https://qa-scooter.praktikum-services.ru/order"
 
     @allure.step("Открыть форму: Для кого самокат")
     def open_page(self):

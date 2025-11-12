@@ -2,11 +2,8 @@ import allure
 from selenium.webdriver import Keys
 from selenium.webdriver.support import expected_conditions as EC, expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
-from locators.main_page_locators import *
 
 class BasePage:
-    HOST = "https://qa-scooter.praktikum-services.ru/"
-
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 100)
@@ -45,11 +42,7 @@ class BasePage:
     @allure.step("Дождаться изменения URL")
     def wait_url(self, url):
         return self.wait.until(expected_conditions.url_to_be(url))
-
-    @allure.step("Принять куки")
-    def accept_cookies(self):
-        self.click(MainPageLocators.COOKIE_BUTTON)
-
+   
     @allure.step("Скроллить к элементу")
     def scroll_to_element(self, element):
         self.driver.execute_script("arguments[0].scrollIntoView();", element)

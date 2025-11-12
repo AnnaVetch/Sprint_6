@@ -3,11 +3,15 @@ from pages.base_page import BasePage
 from locators.main_page_locators import *
 
 class MainPage(BasePage):
-    URL = BasePage.HOST
+    URL = "https://qa-scooter.praktikum-services.ru/"
 
     @allure.step("Открыть главную страницу сайта ЯндексСамоката")
     def open_page(self):
         self.open(self.URL)
+
+    @allure.step("Принять куки")
+    def accept_cookies(self):
+        self.click(MainPageLocators.COOKIE_BUTTON)
 
     @allure.step("Нажать кнопку 'Заказать' в хедере")
     def click_top_button_order(self):
